@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transport Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <ul class="sidebar">
+            <li id="hideButton" onclick="hideSidebar()" ><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </a></li>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="About.html">About US</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+        <ul class="topbar">
+            <li><a href="UG">Transport Management System</a></li>
+            <li><a class="active" href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="About.html">About US</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li  onclick="showSidebar()"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="left">
+            <h1 class="heading1">Transport Management System</h1>
+            <h1 class="heading1">For Intra-City</h1>
+        </div>
+        <div class="right">
+            <img src="BusImage.jpeg" alt="Bus" height="50%" width="50%">
+        </div>    
+    </div>
+    <script src="script.js">
+
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'block'
+        }
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar')
+            sidebar.style.display = 'none'
+        }
+    </script>
+</body>
+
+</html>

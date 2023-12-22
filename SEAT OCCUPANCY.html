@@ -1,0 +1,97 @@
+<html>
+<head>      
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.8), rgba(108, 91, 123, 0.5), rgba(189, 195, 199, 0.3));
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .bus-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .seat {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: #bfbfbf;
+            border: 1px solid #666;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .available {
+            background-color: #8eff8e;
+        }
+
+        .unavailable {
+            background-color: #b53185;
+        }
+    </style>
+    <title>Bus Seat Availability</title>
+</head>
+<body bgcolor="#E4F0F8">
+<center><font color="black" size="6" face="arial">SEAT OCCUPANCY</font> </center><br />
+<action="left.html">
+    <body>
+        <h1>Bus Seat Availability</h1>
+    
+        <div class="bus-container">
+            <h2>Bus Number: <span id="busNumber">XYZ123</span></h2>
+            <p>Available Seats: <span id="availableSeats">0</span></p>
+    
+            <div id="seats" class="seats">
+                <!-- Generate seats dynamically using JavaScript -->
+            </div>
+        </div>
+    
+        <script>
+            // Number of seats in the bus
+            const totalSeats = 30;
+    
+            // Track available seats
+            let availableSeats = totalSeats;
+    
+            // Bus number
+            const busNumberElement = document.getElementById('busNumber');
+            const availableSeatsElement = document.getElementById('availableSeats');
+            const seatsContainer = document.getElementById('seats');
+    
+            // Initialize bus number
+            busNumberElement.textContent = 'XYZ123';
+    
+            // Initialize available seats count
+            availableSeatsElement.textContent = availableSeats;
+    
+            // Generate seats dynamically
+            for (let i = 1; i <= totalSeats; i++) {
+                const seat = document.createElement('div');
+                seat.className = 'seat';
+                seat.textContent = i;
+                seat.addEventListener('click', () => toggleSeatAvailability(seat));
+                seatsContainer.appendChild(seat);
+            }
+    
+            // Function to toggle seat availability
+            function toggleSeatAvailability(seat) {
+                if (seat.classList.contains('available')) {
+                    seat.classList.remove('available');
+                    seat.classList.add('unavailable');
+                    availableSeats++;
+                } else {
+                    seat.classList.remove('unavailable');
+                    seat.classList.add('available');
+                    availableSeats--;
+                }
+    
+                // Update available seats count
+                availableSeatsElement.textContent = availableSeats;
+            }
+        </script>
+</body>
+</html>
